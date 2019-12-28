@@ -7,6 +7,34 @@ class Main extends Component {
         return (
             <div className={classes.Main}>
                 <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+                <h1>Main page</h1>
+
+
             </div>
         )
     }
