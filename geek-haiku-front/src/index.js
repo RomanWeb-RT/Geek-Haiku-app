@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from "react-router-dom";
 
 const application = (
-    <App>
-
-    </App>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
 )
 
 
