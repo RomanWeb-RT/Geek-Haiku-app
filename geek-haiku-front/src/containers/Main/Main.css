@@ -6,8 +6,9 @@
     align-self: center;
     padding-top: 50px;
     width: 50%;
-    background: #54f745;
-    border: 1px solid aquamarine;
+    background: #5AFFA1;
+    border: 5px solid aquamarine;
+    min-width: 600px;
 }
 
 .Main h1{

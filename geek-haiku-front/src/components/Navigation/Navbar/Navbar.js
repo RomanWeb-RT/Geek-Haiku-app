@@ -12,7 +12,7 @@ class Navbar extends Component {
 
 
     handleScroll = () => {
-        if (window.pageYOffset > 150 ) {
+        if (window.pageYOffset > 150) {
             this.setState({
                 showNavbar: false,
             });
@@ -31,7 +31,8 @@ class Navbar extends Component {
         return (
             <React.Fragment>
                 <nav className={nav.join(' ')}>
-                    <h2>Navbar</h2>
+                    <a href={"/"}/>
+                    <strong>Geek Haiku</strong>
                 </nav>
             </React.Fragment>
         )
