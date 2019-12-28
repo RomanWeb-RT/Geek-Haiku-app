@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 60px;
-    background: linear-gradient(90deg, #5041b2 30%, #7969e6 100%, rgba(145, 145, 255, 0.71) 100%);;
+    background: linear-gradient(90deg, black 5%, #5041b2 30%, #7969e6 100%, rgba(145, 145, 255, 0.71) 100%);
     transition: transform .22s ease-out;
     z-index: 2000;
     transform: translateY(0px);
@@ -26,7 +26,8 @@
     background-size: cover;
     overflow: hidden;
     margin: 5px;
-    background-image: url('../../../GH.png');
+    margin-left: 40px;
+    background-image: url('../../../navbar_icon.png');
     width: 50px;
     height: 50px;
 }

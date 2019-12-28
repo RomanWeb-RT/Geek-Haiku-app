@@ -1,3 +1,12 @@
 .Haiku{
-
+    align-self: center;
+    display: inline-block;
+    height: 350px;
+    width: 600px;
+    background: url("https://www.stratege.ru/forums/files/gallery/1/3c6/d2f/2768790f9f637ba7413e6127d3471fb3.jpg");
+    border: 2px solid rgba(117, 255, 117, 0.72);
+    box-shadow: 5px 5px 3px #254447;
+    border-radius: 5px;
+    margin-top: 40px;
+    box-sizing: border-box;
 }
