@@ -1,13 +1,14 @@
 import React from 'react';
+import Layout from "./hoc/Layout/Layout";
 
 function App() {
-  return (
-    <div className="App">
-      <header>
-        It`s work correct
-      </header>
-    </div>
-  );
+    return (
+        <Layout>
+            <div style={{backgroundColor: 'black'}}>
+                HELLOOOOOOOOOO
+            </div>
+        </Layout>
+    );
 }
 
 export default App;
