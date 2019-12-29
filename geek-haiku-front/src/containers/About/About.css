@@ -1,0 +1,26 @@
+.About{
+    height: 100vh;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    margin-top: 100px;
+    align-self: center;
+}
+
+.About ul{
+    font-family: Cassanet;
+    width: 500px;
+    border: 3px double #5AFFA1;
+    padding: 20px;
+}
+
+.About ul li{
+    font-size: 20px;
+    color: #00d3ff;
+}
+
+.About ul p{
+    font-family: Cassanet;
+    font-size: 24px;
+    color: #6eff0d;
+}

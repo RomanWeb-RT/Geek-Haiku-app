@@ -1,15 +1,15 @@
 import classes from './Navbar.css'
-import React, {Component} from "react";
+import React, {Component} from 'react';
+import {NavLink} from "react-router-dom";
 
 class Navbar extends Component {
     state = {
         showNavbar: true
-    }
+    };
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
-    }
-
+    };
 
     handleScroll = () => {
         if (window.pageYOffset > 150) {
@@ -21,7 +21,7 @@ class Navbar extends Component {
                 showNavbar: true,
             });
         }
-    }
+    };
 
     render() {
         let nav = [classes.Navbar];
@@ -31,12 +31,12 @@ class Navbar extends Component {
         return (
             <React.Fragment>
                 <nav className={nav.join(' ')}>
-                    <a href={"/"}/>
+                    <NavLink to={"/"} exact={true}/>
                     <strong>Geek Haiku</strong>
                 </nav>
             </React.Fragment>
         )
-    }
+    };
 }
 
 export default Navbar;
