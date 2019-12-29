@@ -6,13 +6,8 @@
     align-self: center;
     padding-top: 50px;
     width: 50%;
-    background: #5AFFA1;
+    background: var(--noiseGreen);
     border: 5px solid aquamarine;
     min-width: 600px;
 }
 
-.Main h1{
-    font-family: Cassanet;
-    font-size: 34px;
-    color: azure;
-}
