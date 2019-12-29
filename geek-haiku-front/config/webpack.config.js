@@ -436,7 +436,7 @@ module.exports = function(webpackEnv) {
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
                 modules: {
-                  localIdentName: '[name]__[local]--[hash:base64:5]'
+                  localIdentName: '[local]'
                 }
               }),
               // Don't consider CSS imports dead code even if the
