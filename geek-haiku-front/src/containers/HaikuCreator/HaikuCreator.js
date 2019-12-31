@@ -35,7 +35,6 @@ class HaikuCreator extends Component {
     createHaikuHandler = async (event) => {
         event.preventDefault();
         const haiku = this.state.haiku.concat();
-        const index = haiku.length + 1
         const {firstLine, secondLine, thirdLine} = this.state.formInputs;
         const result = {
             text: [
@@ -56,7 +55,6 @@ class HaikuCreator extends Component {
     changeHandler = (value, controlName) => {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
-
         control.touched = true;
         control.value = value;
         control.valid = validate(control.value, control.validation);
@@ -77,6 +75,7 @@ class HaikuCreator extends Component {
                     label={control.label}
                     value={control.value}
                     valid={control.valid}
+                    key={control.id}
                     shouldValidate={!!control.validation}
                     touched={control.touched}
                     invalidMessage={control.invalidMessage}
@@ -94,7 +93,11 @@ class HaikuCreator extends Component {
                         {this.inputFieldsRender()}
                         <hr/>
                         <h2>Предпросмотр</h2>
-                        <Haiku/>
+                        <Haiku
+                            firstLine={this.state.formInputs.firstLine.value}
+                            secondLine={this.state.formInputs.secondLine.value}
+                            thirdLine={this.state.formInputs.thirdLine.value}
+                        />
                         <hr/>
                         <Button type="primary" onClick={this.createHaikuHandler} disabled={!this.state.isFormValid}>
                             Create

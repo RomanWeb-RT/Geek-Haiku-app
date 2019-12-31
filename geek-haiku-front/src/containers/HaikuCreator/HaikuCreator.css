@@ -5,13 +5,14 @@
     padding-top: 100px;
     align-self: center;
     width: 50%;
-    min-width: 500px;
+    min-width: 750px;
     border: 5px solid aquamarine;
     margin-bottom: 100px;
     font-family: Cassanet;
 }
 
 .HaikuCreator > div {
+    display: inline-block;
     align-self: center;
     width: 80%;
     padding: 0 20px;

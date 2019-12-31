@@ -5,9 +5,9 @@ import HaikuText from "./HaikuText/HaikuText";
 const Haiku = props => {
     return (
         <div className={classes.Haiku}>
-            <HaikuText text={props.text}/>
+            <HaikuText text={props}/>
         </div>
     )
-}
+};
 
 export default Haiku;
