@@ -4,6 +4,7 @@ import Button from "../../components/Ui/Button/Button";
 import Input from "../../components/Ui/Input/Input";
 import Haiku from "../../components/Haiku/Haiku";
 import {createControl, validate, validateForm} from "../../form/formFramework";
+import ImageUploader from "../../components/ImageUploader/ImageUploader";
 
 class HaikuCreator extends Component {
     state = {
@@ -25,7 +26,8 @@ class HaikuCreator extends Component {
                 invalidMessage: 'Поле не должно быть пустым',
                 id: 3
             }, {required: true}),
-        }
+        },
+        image: ''
     };
 
     submitHandler = event => {
@@ -41,7 +43,8 @@ class HaikuCreator extends Component {
                 {text: firstLine.value, id: firstLine.id},
                 {text: secondLine.value, id: secondLine.id},
                 {text: thirdLine.value, id: thirdLine.id}
-            ]
+            ],
+            image: this.state.image
         };
         haiku.push(result);
 
@@ -52,7 +55,7 @@ class HaikuCreator extends Component {
         }
     };
 
-    changeHandler = (value, controlName) => {
+    changeTextHandler = (value, controlName) => {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
         control.touched = true;
@@ -67,6 +70,16 @@ class HaikuCreator extends Component {
         })
     };
 
+    changeImageHandler = value => {
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            this.setState({
+                image: reader.result
+            })
+        };
+        reader.readAsDataURL(value)
+    };
+
     inputFieldsRender() {
         return Object.keys(this.state.formInputs).map((controlName) => {
             const control = this.state.formInputs[controlName];
@@ -79,7 +92,7 @@ class HaikuCreator extends Component {
                     shouldValidate={!!control.validation}
                     touched={control.touched}
                     invalidMessage={control.invalidMessage}
-                    onChange={event => this.changeHandler(event.target.value, controlName)}
+                    onChange={event => this.changeTextHandler(event.target.value, controlName)}
                 />)
         })
     }
@@ -92,15 +105,20 @@ class HaikuCreator extends Component {
                     <form onSubmit={this.submitHandler}>
                         {this.inputFieldsRender()}
                         <hr/>
+                        <ImageUploader
+                            onChange={event => this.changeImageHandler(event.target.files[0])}
+                        />
+                        <hr/>
                         <h2>Предпросмотр</h2>
                         <Haiku
                             firstLine={this.state.formInputs.firstLine.value}
                             secondLine={this.state.formInputs.secondLine.value}
                             thirdLine={this.state.formInputs.thirdLine.value}
+                            image={this.state.image}
                         />
                         <hr/>
                         <Button type="primary" onClick={this.createHaikuHandler} disabled={!this.state.isFormValid}>
-                            Create
+                            Создать
                         </Button>
                     </form>
                 </div>
