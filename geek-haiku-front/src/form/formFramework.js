@@ -16,18 +16,18 @@ export function validate(value, validation = null) {
     let isValid = true;
 
     if (validation.required) {
-        isValid = value.trim() !== '' && isValid
+        isValid = value.trim() !== '' && isValid && value.length < 25
     }
 
     return isValid
 }
 
-export function validateForm(formControls) {
+export function validateForm(formInputs) {
     let isFormValid = true;
 
-    for (let control in formControls) {
-        if (formControls.hasOwnProperty(control)) {
-            isFormValid = formControls[control].valid && isFormValid
+    for (let control in formInputs) {
+        if (formInputs.hasOwnProperty(control)) {
+            isFormValid = formInputs[control].valid && isFormValid
         }
     }
 

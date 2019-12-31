@@ -25,9 +25,9 @@ class HaikuCreator extends Component {
                 label: 'Третья строка (5 слогов)',
                 invalidMessage: 'Поле не должно быть пустым',
                 id: 3
-            }, {required: true}),
+            }, {required: true})
         },
-        image: ''
+        image: 'https://www.stratege.ru/forums/files/gallery/1/3c6/d2f/2768790f9f637ba7413e6127d3471fb3.jpg'
     };
 
     submitHandler = event => {
