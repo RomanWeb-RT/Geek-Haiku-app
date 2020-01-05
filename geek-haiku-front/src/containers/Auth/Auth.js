@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import Button from "../../components/Ui/Button/Button";
 import Input from "../../components/Ui/Input/Input";
 import {Redirect} from "react-router-dom";
-import {createControl} from "../../form/formFramework";
+import {createControl, validate, validateForm} from "../../form/formFramework";
 
 class Auth extends Component {
     state = {
@@ -25,6 +25,33 @@ class Auth extends Component {
                 type: 'password'
             }, {required: true})
         }
+    };
+
+    submitHandler = event => {
+        event.preventDefault();
+    };
+
+    changeTextHandler = (value, controlName) => {
+        const formInputs = {...this.state.formInputs};
+        const control = {...formInputs[controlName]};
+        control.touched = true;
+        control.value = value;
+        control.valid = validate(control.value, control.validation);
+
+        formInputs[controlName] = control;
+
+        this.setState({
+            formInputs,
+            isFormValid: validateForm(formInputs)
+        })
+    };
+
+    loginHandler = () => {
+
+    };
+
+    registerHandler = () => {
+
     };
 
     inputFieldsRender() {
@@ -56,12 +83,11 @@ class Auth extends Component {
             <div className={styles.Auth}>
                 <div>
                     <form onSubmit={this.submitHandler} className={styles.AuthForm}>
-
                         {this.inputFieldsRender()}
-                        <Button type="success" onClick={this.loginHandler}
-                                disabled={!this.state.isFormValid}>Войти</Button>
-                        <Button type="primary" onClick={this.registerHandler}
-                                disabled={!this.state.isFormValid}>Регистрация</Button>
+                        <hr/>
+                        <Button type="successful" onClick={this.loginHandler}
+                                disabled={!this.state.isFormValid}>Вход</Button>
+                        <Button type="primary" onClick={this.registerHandler}>Регистрация</Button>
                     </form>
                 </div>
             </div>
