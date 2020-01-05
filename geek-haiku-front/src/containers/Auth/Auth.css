@@ -1,21 +1,25 @@
 .Auth {
     display: flex;
-    justify-content: center;
-    padding-top: 100px;
     flex-grow: 1;
-    width: 100%;
+    justify-content: center;
+    align-self: center;
+    width: 50%;
     height: 100vh;
-    border: 5px solid aquamarine;
-    background: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, #54f745 100%);
+    min-width: 750px;
     font-family: Cassanet;
 }
 
 .Auth > div {
-    width: 100%;
+    padding: 40px;
+    width: 80%;
     max-width: 600px;
-    padding: 0 20px;
+    align-self: center;
+    border: 5px solid aquamarine;
+    background: var(--gradient);
+    border-radius: 6px;
 }
-.Auth hr{
+
+.Auth hr {
     color: var(--noiseGreen);
 }
 
@@ -25,9 +29,9 @@
     color: azure;
 }
 
-.AuthForm{
-    background: rgba(217, 247, 251, 0.61);
-    box-shadow: 2px 2px 2px darkslategrey;
+.AuthForm {
+    border: 2px solid var(--borderToxic);
+    box-shadow: 5px 5px 3px #254447;
     padding: 15px;
     border-radius: 4px;
 }
