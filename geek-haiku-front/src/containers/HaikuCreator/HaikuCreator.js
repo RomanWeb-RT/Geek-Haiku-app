@@ -9,7 +9,6 @@ import {Redirect} from "react-router-dom";
 
 class HaikuCreator extends Component {
     state = {
-        haiku: [],
         isFormValid: false,
         redirect: false,
         formInputs: {
@@ -47,7 +46,7 @@ class HaikuCreator extends Component {
                 {text: thirdLine.value, id: thirdLine.id}
             ],
             image: this.state.image,
-            date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+            date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         };
 
         try {
