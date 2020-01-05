@@ -1,0 +1,15 @@
+.HaikuText {
+    align-self: center;
+    background: rgba(240, 255, 255, 0.91);
+    position: relative;
+    margin-top: 250px;
+}
+
+.HaikuText p {
+    text-align: center;
+    font-family: Cassanet;
+    color: #5041B2;
+    font-size: 25px;
+    font-style: italic;
+    text-shadow: 0px 1px 1px darkcyan;
+}

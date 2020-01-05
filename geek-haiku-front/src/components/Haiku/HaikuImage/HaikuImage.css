@@ -1,0 +1,12 @@
+.HaikuImage {
+    position: absolute;
+    height: 346px;
+    width: 596px;
+}
+
+.HaikuImage img {
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

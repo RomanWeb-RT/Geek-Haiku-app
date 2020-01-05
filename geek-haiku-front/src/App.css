@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Cassannet';
+    font-weight: 900;
+    src: local('Cassannet'), url(./fonts/Cassanet/Cassannet_Bold.otf) format("opentype");
+}
+
+:root{
+    --backgroundDark: #254447;
+    --noiseGreen: #5AFFA1;
+    --borderToxic: rgba(117, 255, 117, 0.72);
+    --errorRed: #ff2c66;
+}

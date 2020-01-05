@@ -1,0 +1,13 @@
+.Main{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    padding-top: 50px;
+    width: 50%;
+    background: var(--noiseGreen);
+    border: 5px solid aquamarine;
+    min-width: 600px;
+}
+

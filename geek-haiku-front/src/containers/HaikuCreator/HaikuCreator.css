@@ -1,0 +1,35 @@
+.HaikuCreator {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding-top: 100px;
+    align-self: center;
+    width: 50%;
+    min-width: 750px;
+    border: 5px solid aquamarine;
+    margin-bottom: 100px;
+    font-family: Cassanet;
+}
+
+.HaikuCreator > div {
+    display: inline-block;
+    align-self: center;
+    width: 80%;
+    padding: 0 20px;
+}
+
+.HaikuCreator hr {
+    color: var(--noiseGreen);
+}
+
+.HaikuCreator h1 {
+    text-align: center;
+    font-size: 34px;
+    color: azure;
+}
+
+.HaikuCreator h2 {
+    text-align: center;
+    font-size: 25px;
+    color: azure;
+}
