@@ -2,19 +2,17 @@ import classes from './HaikuText.css'
 import React from "react";
 
 const HaikuText = props => {
-
-    console.log(props.text.firstLine)
     return (
         <div className={classes.HaikuText}>
             {
-                props.text.firstLine === '' && props.text.secondLine === '' && props.text.thirdLine === '' ?
+                props.text[0].text === '' && props.text[1].text === '' && props.text[2].text === '' ?
                     <p>~ Мятный самурай ~<br/>
                         ~ Любит сакэ навернуть ~<br/>
                         ~ Смотря на закат ~</p>
                     :
-                    <p>~ {props.text.firstLine} ~<br/>
-                        ~ {props.text.secondLine} ~<br/>
-                        ~ {props.text.thirdLine} ~</p>
+                    <p>~ {props.text[0].text} ~<br/>
+                        ~ {props.text[1].text} ~<br/>
+                        ~ {props.text[2].text} ~</p>
             }
         </div>
     )

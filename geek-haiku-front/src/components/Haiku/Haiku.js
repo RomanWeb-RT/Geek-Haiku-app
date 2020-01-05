@@ -5,7 +5,7 @@ import HaikuText from "./HaikuText/HaikuText";
 const Haiku = props => {
     return (
         <div className={classes.Haiku} style={{backgroundImage: `url(${props.image})`}}>
-            <HaikuText text={props}/>
+            <HaikuText text={props.text}/>
         </div>
     )
 };

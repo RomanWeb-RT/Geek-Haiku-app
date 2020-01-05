@@ -5,11 +5,13 @@ import Input from "../../components/Ui/Input/Input";
 import Haiku from "../../components/Haiku/Haiku";
 import {createControl, validate, validateForm} from "../../form/formFramework";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
+import {Redirect} from "react-router-dom";
 
 class HaikuCreator extends Component {
     state = {
         haiku: [],
         isFormValid: false,
+        redirect: false,
         formInputs: {
             firstLine: createControl({
                 label: 'Первая строка (5 слогов)',
@@ -44,15 +46,27 @@ class HaikuCreator extends Component {
                 {text: secondLine.value, id: secondLine.id},
                 {text: thirdLine.value, id: thirdLine.id}
             ],
-            image: this.state.image
+            image: this.state.image,
+            date: new Date()
         };
         haiku.push(result);
 
         try {
-            await fetch('')
+            let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(haiku)
+            });
+            let final = await response.json();
+            console.log(final)
         } catch (e) {
             console.error(e)
         }
+        // this.setState({
+        //     redirect: true
+        // })
     };
 
     changeTextHandler = (value, controlName) => {
@@ -97,6 +111,12 @@ class HaikuCreator extends Component {
         })
     }
 
+    renderRedirect() {
+        if (this.state.redirect) {
+            return <Redirect to="/"/>
+        }
+    }
+
     render() {
         return (
             <div className={classes.HaikuCreator}>
@@ -110,17 +130,18 @@ class HaikuCreator extends Component {
                         />
                         <hr/>
                         <h2>Предпросмотр</h2>
-                        <Haiku
-                            firstLine={this.state.formInputs.firstLine.value}
-                            secondLine={this.state.formInputs.secondLine.value}
-                            thirdLine={this.state.formInputs.thirdLine.value}
-                            image={this.state.image}
+                        <Haiku text={[
+                            {text: this.state.formInputs.firstLine.value},
+                            {text: this.state.formInputs.secondLine.value},
+                            {text: this.state.formInputs.thirdLine.value}]}
+                               image={this.state.image}
                         />
                         <hr/>
                         <Button type="primary" onClick={this.createHaikuHandler} disabled={!this.state.isFormValid}>
                             Создать
                         </Button>
                     </form>
+                    {this.renderRedirect()}
                 </div>
             </div>
         )
