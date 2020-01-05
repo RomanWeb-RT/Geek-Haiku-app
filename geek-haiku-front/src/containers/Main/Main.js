@@ -13,7 +13,7 @@ class Main extends Component {
             let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json')
                 .then(resp => resp.json());
             Object.keys(response).forEach((key) => {
-                haikuList.push(response[key][0])
+                haikuList.push(response[key])
             });
             this.setState({
                 haiku: haikuList
@@ -26,7 +26,7 @@ class Main extends Component {
 
     haikuListRender() {
         return this.state.haiku.map(haiku => {
-            const {image, text} = haiku;
+            const {date, image, text} = haiku;
             const result = {
                 text: [
                     {text: text[0].text, id: text[0].id},

@@ -38,18 +38,17 @@ class HaikuCreator extends Component {
 
     createHaikuHandler = async (event) => {
         event.preventDefault();
-        const haiku = this.state.haiku.concat();
         const {firstLine, secondLine, thirdLine} = this.state.formInputs;
-        const result = {
+        const date = new Date();
+        const haiku = {
             text: [
                 {text: firstLine.value, id: firstLine.id},
                 {text: secondLine.value, id: secondLine.id},
                 {text: thirdLine.value, id: thirdLine.id}
             ],
             image: this.state.image,
-            date: new Date()
+            date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
         };
-        haiku.push(result);
 
         try {
             let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json', {
@@ -59,14 +58,12 @@ class HaikuCreator extends Component {
                 },
                 body: JSON.stringify(haiku)
             });
-            let final = await response.json();
-            console.log(final)
         } catch (e) {
             console.error(e)
         }
-        // this.setState({
-        //     redirect: true
-        // })
+        this.setState({
+            redirect: true
+        })
     };
 
     changeTextHandler = (value, controlName) => {
