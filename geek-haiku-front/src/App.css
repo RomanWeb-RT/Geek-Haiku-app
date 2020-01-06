@@ -5,8 +5,10 @@
 }
 
 :root{
-    --backgroundDark: #254447;
+    --backgroundDark: #113d5e;
     --noiseGreen: #5AFFA1;
     --borderToxic: rgba(117, 255, 117, 0.72);
     --errorRed: #ff2c66;
+    --gradient: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, var(--noiseGreen) 100%);
+    --darkCyan: #008B8B;
 }

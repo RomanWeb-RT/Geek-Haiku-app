@@ -1,0 +1,37 @@
+.Register {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-self: center;
+    width: 50%;
+    height: 100vh;
+    min-width: 750px;
+    font-family: Cassanet;
+}
+
+.Register > div {
+    padding: 0 40px 40px 40px;
+    width: 80%;
+    max-width: 600px;
+    align-self: center;
+    border: 5px solid aquamarine;
+    background: var(--gradient);
+    border-radius: 6px;
+}
+
+.Register hr {
+    color: var(--noiseGreen);
+}
+
+.Register h1 {
+    text-align: center;
+    font-size: 34px;
+    color: azure;
+}
+
+.RegisterForm {
+    border: 2px solid var(--borderToxic);
+    box-shadow: 5px 5px 3px #254447;
+    padding: 15px;
+    border-radius: 4px;
+}

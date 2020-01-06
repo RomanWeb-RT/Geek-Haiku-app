@@ -9,7 +9,6 @@ import {Redirect} from "react-router-dom";
 
 class HaikuCreator extends Component {
     state = {
-        haiku: [],
         isFormValid: false,
         redirect: false,
         formInputs: {
@@ -47,7 +46,7 @@ class HaikuCreator extends Component {
                 {text: thirdLine.value, id: thirdLine.id}
             ],
             image: this.state.image,
-            date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+            date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         };
 
         try {
@@ -108,7 +107,7 @@ class HaikuCreator extends Component {
         })
     }
 
-    renderRedirect() {
+    redirectRender() {
         if (this.state.redirect) {
             return <Redirect to="/"/>
         }
@@ -138,7 +137,7 @@ class HaikuCreator extends Component {
                             Создать
                         </Button>
                     </form>
-                    {this.renderRedirect()}
+                    {this.redirectRender()}
                 </div>
             </div>
         )
