@@ -1,9 +1,9 @@
 import styles from './Auth.css'
-import React, {Component} from "react";
-import Button from "../../components/Ui/Button/Button";
-import Input from "../../components/Ui/Input/Input";
-import {Redirect} from "react-router-dom";
-import {createControl, validate, validateForm} from "../../form/formFramework";
+import React, {Component} from 'react';
+import Button from '../../components/Ui/Button/Button';
+import Input from '../../components/Ui/Input/Input';
+import {Redirect} from 'react-router-dom';
+import {createControl, validate, validateForm} from '../../form/formFramework';
 
 class Auth extends Component {
     state = {
@@ -35,11 +35,12 @@ class Auth extends Component {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
         control.touched = true;
-        control.value = value;
+        if(value.length <= 35)
+            control.value = value;
+
         control.valid = validate(control.value, control.validation);
 
         formInputs[controlName] = control;
-
         this.setState({
             formInputs,
             isFormValid: validateForm(formInputs)
@@ -72,7 +73,7 @@ class Auth extends Component {
         })
     }
 
-    renderRedirect() {
+    redirectRender() {
         if (this.state.redirect) {
             return <Redirect to="/"/>
         }
@@ -89,6 +90,7 @@ class Auth extends Component {
                                 disabled={!this.state.isFormValid}>Вход</Button>
                         <Button type="primary" onClick={this.registerHandler}>Регистрация</Button>
                     </form>
+                    {this.redirectRender()}
                 </div>
             </div>
         )

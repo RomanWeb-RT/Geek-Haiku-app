@@ -9,14 +9,13 @@ export function createControl(config, validation) {
 }
 
 export function validate(value, validation = null) {
+    let isValid = true;
+
     if (!validation) {
         return true
     }
-
-    let isValid = true;
-
     if (validation.required) {
-        isValid = value.trim() !== '' && isValid && value.length < 25
+        isValid = value.trim() !== '' && isValid
     }
 
     return isValid

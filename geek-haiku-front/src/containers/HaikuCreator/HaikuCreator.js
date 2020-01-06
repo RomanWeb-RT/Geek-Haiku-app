@@ -107,7 +107,7 @@ class HaikuCreator extends Component {
         })
     }
 
-    renderRedirect() {
+    redirectRender() {
         if (this.state.redirect) {
             return <Redirect to="/"/>
         }
@@ -137,7 +137,7 @@ class HaikuCreator extends Component {
                             Создать
                         </Button>
                     </form>
-                    {this.renderRedirect()}
+                    {this.redirectRender()}
                 </div>
             </div>
         )
