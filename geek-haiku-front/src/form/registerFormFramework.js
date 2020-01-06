@@ -3,27 +3,36 @@ export function createControl(config, validation) {
         ...config,
         validation,
         valid: !validation,
-        error: false,
         touched: false,
-        value: ''
+        value: '',
+        invalidMessage: ''
     }
 }
 
-export function validate(value, validation = null) {
-    let isValid = true;
-
-    if (!validation) {
-        return true
+function validateIncorrectData(id, value) {
+    switch (id) {
+        case 1:
+            return validateEmail(value);
+        case 2:
+            return validatePassword(value);
+        case 3:
+            return true;
     }
-    if (validation.required) {
-        isValid = value.trim() !== '' && isValid
-    }
+}
 
-    return isValid
+export function validateOnEmpty(value, validation = null) {
+    if (validation.required)
+        return value.trim() !== ''
+}
+
+export function validate(control) {
+    if (!control.validation)
+        return true;
+    return !!(validateIncorrectData(control.id, control.value) && validateOnEmpty(control.value, control.validation));
 }
 
 export function validateEmail(value) {
-    let expression = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    let expression = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     return !!value.match(expression);
 }
 
@@ -41,7 +50,7 @@ export function validateForm(formInputs) {
 
     for (let control in formInputs) {
         if (formInputs.hasOwnProperty(control)) {
-            isFormValid = formInputs[control].valid && formInputs[control].error && isFormValid
+            isFormValid = formInputs[control].valid && isFormValid
         }
     }
 

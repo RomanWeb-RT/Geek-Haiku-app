@@ -9,7 +9,7 @@ import {
     validateForm,
     validatePassword,
     validateComparePasswords,
-    validateEmail
+    validateEmail, validateOnEmpty
 } from '../../form/registerFormFramework';
 
 class Register extends Component {
@@ -19,21 +19,18 @@ class Register extends Component {
         formInputs: {
             email: createControl({
                 label: 'E-mail',
-                invalidMessage: 'Поле не должно быть пустым',
                 errorMessage: 'Неправильный формат почты',
                 id: 1,
                 type: 'email'
             }, {required: true}),
             password: createControl({
                 label: 'Пароль',
-                invalidMessage: 'Поле не должно быть пустым',
                 errorMessage: 'Пароль должен содержать 6-20 символов, включая как минимум одну цифру, одну прописную и одну строчную букву',
                 id: 2,
                 type: 'password'
             }, {required: true}),
             confirmPassword: createControl({
                 label: 'Подтвердите пароль',
-                invalidMessage: 'Поле не должно быть пустым',
                 errorMessage: 'Пароли не совпадают',
                 id: 3,
                 type: 'password'
@@ -49,10 +46,12 @@ class Register extends Component {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
         control.touched = true;
-        if(value.length <= 35)
+        if (value.length <= 35)
             control.value = value;
-        control.valid = validate(control.value, control.validation);
-        control.error = this.errorCheck(control);
+        control.valid = validate(control);
+        validateOnEmpty(control.value, control.validation) ?
+            control.invalidMessage = control.errorMessage :
+            control.invalidMessage = 'Поле не должно быть пустым';
         formInputs[controlName] = control;
         this.setState({
             formInputs,
@@ -60,13 +59,6 @@ class Register extends Component {
         })
     };
 
-    errorCheck(control){
-        switch (control.id) {
-            case 1: return validateEmail(control.value);
-            case 2: return validatePassword(control.value);
-            case 3: return validateComparePasswords(control.value, this.state.formInputs.password.value);
-        }
-    }
 
     inputFieldsRender() {
         return Object.keys(this.state.formInputs).map((controlName) => {
@@ -77,12 +69,10 @@ class Register extends Component {
                     label={control.label}
                     value={control.value}
                     valid={control.valid}
-                    error={control.error}
                     key={control.id}
                     shouldValidate={!!control.validation}
                     touched={control.touched}
                     invalidMessage={control.invalidMessage}
-                    errorMessage={control.errorMessage}
                     onChange={event => this.changeTextHandler(event.target.value, controlName)}/>
             )
         })
