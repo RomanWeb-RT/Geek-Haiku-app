@@ -35,6 +35,11 @@ class Register extends Component {
                 id: 3,
                 type: 'password'
             }, {required: true}),
+            username: createControl({
+                label: 'Имя пользователя',
+                errorMessage: 'Такое имя уже занято, попробуйте другое',
+                id: 4,
+            }, {required: true})
         }
     };
 
@@ -46,8 +51,10 @@ class Register extends Component {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
         control.touched = true;
+
         if (value.length <= 35)
             control.value = value;
+
         control.valid = validate(control);
         validateOnEmpty(control.value, control.validation) ?
             control.invalidMessage = control.errorMessage :
@@ -56,7 +63,9 @@ class Register extends Component {
         this.setState({
             formInputs,
             isFormValid: validateForm(formInputs)
-        })
+        });
+        if (control.type === formInputs['password'].type)
+            formInputs['confirmPassword'].valid = validateComparePasswords(formInputs['password'].value, formInputs['confirmPassword'].value);
     };
 
 
@@ -88,12 +97,13 @@ class Register extends Component {
         return (
             <div className={styles.Register}>
                 <div>
+                    <h1>Регистрация</h1>
                     <form onSubmit={this.submitHandler} className={styles.RegisterForm}>
                         {this.inputFieldsRender()}
                         <hr/>
                         <hr/>
                         <Button type="successful" onClick={this.loginHandler}
-                                disabled={!this.state.isFormValid}>Вход</Button>
+                                disabled={!this.state.isFormValid}>Подтвердить</Button>
                     </form>
                     {this.redirectRender()}
                 </div>

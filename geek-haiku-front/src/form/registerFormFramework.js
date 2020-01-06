@@ -15,7 +15,7 @@ function validateIncorrectData(id, value) {
             return validateEmail(value);
         case 2:
             return validatePassword(value);
-        case 3:
+        default:
             return true;
     }
 }
