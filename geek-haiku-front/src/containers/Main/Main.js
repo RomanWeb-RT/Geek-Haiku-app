@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import classes from './Main.css';
 import Haiku from "../../components/Haiku/Haiku";
+import Loader from "../../components/Loader/Loader";
 
 class Main extends Component {
     state = {
-        haiku: []
+        haiku: [],
+        loading: true
     };
 
     async componentDidMount() {
@@ -16,9 +18,9 @@ class Main extends Component {
                 haikuList.push(response[key])
             });
             this.setState({
-                haiku: haikuList
+                haiku: haikuList,
+                loading: false
             })
-
         } catch (e) {
             console.error(e)
         }
@@ -46,7 +48,9 @@ class Main extends Component {
     render() {
         return (
             <div className={classes.Main}>
-                {this.haikuListRender()}
+                {this.state.loading ?
+                    <Loader/> :
+                    this.haikuListRender()}
             </div>
         )
     }
