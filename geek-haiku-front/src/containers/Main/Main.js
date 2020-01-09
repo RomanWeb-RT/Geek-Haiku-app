@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import classes from './Main.css';
 import Haiku from "../../components/Haiku/Haiku";
 import Loader from "../../components/Loader/Loader";
+import Pagination from "../../components/Pagination/Pagination";
 
 class Main extends Component {
     state = {
-        haiku: [],
+        haikuList: [],
         loading: true
     };
 
@@ -18,7 +19,7 @@ class Main extends Component {
                 haikuList.push(response[key])
             });
             this.setState({
-                haiku: haikuList,
+                haikuList,
                 loading: false
             })
         } catch (e) {
@@ -27,7 +28,7 @@ class Main extends Component {
     }
 
     haikuListRender() {
-        return this.state.haiku.map(haiku => {
+        return this.state.haikuList.map(haiku => {
             const {date, image, text} = haiku;
             const result = {
                 text: [
@@ -41,7 +42,6 @@ class Main extends Component {
                 <Haiku image={result.image} text={result.text} key={Math.random()}/>
             )
         })
-
     }
 
 
@@ -50,7 +50,9 @@ class Main extends Component {
             <div className={classes.Main}>
                 {this.state.loading ?
                     <Loader/> :
-                    this.haikuListRender()}
+                    this.haikuListRender()
+                }
+                <Pagination loading={this.state.loading}/>
             </div>
         )
     }

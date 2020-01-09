@@ -37,3 +37,7 @@
     background: var(--darkCyan);
     color: var(--noiseGreen);
 }
+
+.navigation{
+    color: var(--navigationPurple);
+}
