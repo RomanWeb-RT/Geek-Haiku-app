@@ -7,23 +7,43 @@ import Pagination from "../../components/Pagination/Pagination";
 class Main extends Component {
     state = {
         haikuList: [],
+        pageList: [],
         loading: true
     };
 
     async componentDidMount() {
         try {
             let haikuList = [];
+            let pageList = [];
+            let id = 0;
             let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json')
                 .then(resp => resp.json());
             Object.keys(response).forEach((key) => {
-                haikuList.push(response[key])
+                if(response[key].date === `2020-1-${5+id}`)
+                    haikuList.push(response[key]);
+                else{
+                    pageList.push(this.addNewPage(id, `2020-1-${5+id}`, haikuList));
+                    haikuList = [];
+                    id++;
+                    haikuList.push(response[key])
+                }
             });
+            if(!haikuList.isEmpty)
+                pageList.push(this.addNewPage(id, `2020-1-${5+id}`, haikuList));
+            haikuList = pageList[0].haikuList;
             this.setState({
                 haikuList,
+                pageList,
                 loading: false
             })
         } catch (e) {
             console.error(e)
+        }
+    }
+
+    addNewPage(id, date, haikuList){
+        return {
+            id, date, haikuList
         }
     }
 
@@ -52,7 +72,7 @@ class Main extends Component {
                     <Loader/> :
                     this.haikuListRender()
                 }
-                <Pagination loading={this.state.loading}/>
+                <Pagination loading={this.state.loading} pages={this.state.pageList}/>
             </div>
         )
     }
