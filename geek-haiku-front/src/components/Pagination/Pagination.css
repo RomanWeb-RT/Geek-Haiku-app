@@ -8,9 +8,5 @@
 }
 
 .Pagination Button{
-    width: 100px;
-}
-
-.Pagination li{
-
+    margin: 0 5px;
 }
