@@ -8,6 +8,7 @@ class Main extends Component {
     state = {
         haikuList: [],
         pageList: [],
+        currentPage: '',
         loading: true
     };
 
@@ -19,21 +20,22 @@ class Main extends Component {
             let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json')
                 .then(resp => resp.json());
             Object.keys(response).forEach((key) => {
-                if(response[key].date === `2020-1-${5+id}`)
+                if (response[key].date === `2020-1-${5 + id}`)
                     haikuList.push(response[key]);
-                else{
-                    pageList.push(this.addNewPage(id, `2020-1-${5+id}`, haikuList));
-                    haikuList = [];
+                else {
+                    pageList.push(this.addNewPage(id, `2020-1-${5 + id}`, haikuList));
                     id++;
+                    haikuList = [];
                     haikuList.push(response[key])
                 }
             });
-            if(!haikuList.isEmpty)
-                pageList.push(this.addNewPage(id, `2020-1-${5+id}`, haikuList));
+            if (!haikuList.isEmpty)
+                pageList.push(this.addNewPage(id, `2020-1-${5 + id}`, haikuList));
             haikuList = pageList[0].haikuList;
             this.setState({
                 haikuList,
                 pageList,
+                currentPage: pageList[0],
                 loading: false
             })
         } catch (e) {
@@ -41,11 +43,18 @@ class Main extends Component {
         }
     }
 
-    addNewPage(id, date, haikuList){
+    addNewPage(id, date, haikuList) {
         return {
             id, date, haikuList
         }
     }
+
+    showPage = page => {
+        this.setState({
+            haikuList: page.haikuList,
+            currentPage: page
+        })
+    };
 
     haikuListRender() {
         return this.state.haikuList.map(haiku => {
@@ -72,7 +81,7 @@ class Main extends Component {
                     <Loader/> :
                     this.haikuListRender()
                 }
-                <Pagination loading={this.state.loading} pages={this.state.pageList}/>
+                <Pagination loading={this.state.loading} pages={this.state.pageList} currentPage={this.state.currentPage} showPage={haikuList => this.showPage(haikuList)}/>
             </div>
         )
     }
