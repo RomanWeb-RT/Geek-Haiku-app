@@ -2,7 +2,7 @@ import styles from './Auth.css'
 import React, {Component} from 'react';
 import Button from '../../components/Ui/Button/Button';
 import Input from '../../components/Ui/Input/Input';
-import {Redirect} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {createControl, validate, validateForm} from '../../form/formFramework';
 
 class Auth extends Component {
@@ -35,7 +35,7 @@ class Auth extends Component {
         const formInputs = {...this.state.formInputs};
         const control = {...formInputs[controlName]};
         control.touched = true;
-        if(value.length <= 35)
+        if (value.length <= 35)
             control.value = value;
 
         control.valid = validate(control.value, control.validation);
@@ -48,10 +48,6 @@ class Auth extends Component {
     };
 
     loginHandler = () => {
-
-    };
-
-    registerHandler = () => {
 
     };
 
@@ -73,9 +69,9 @@ class Auth extends Component {
         })
     }
 
-    redirectRender() {
+    redirectRender(path) {
         if (this.state.redirect) {
-            return <Redirect to="/"/>
+            return <Redirect to={path}/>
         }
     }
 
@@ -88,7 +84,7 @@ class Auth extends Component {
                         <hr/>
                         <Button type="successful" onClick={this.loginHandler}
                                 disabled={!this.state.isFormValid}>Вход</Button>
-                        <Button type="primary" onClick={this.registerHandler}>Регистрация</Button>
+                        <NavLink to={"/register"} exact={true}><Button type="primary">Регистрация</Button></NavLink>
                     </form>
                     {this.redirectRender()}
                 </div>
