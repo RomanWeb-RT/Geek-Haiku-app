@@ -1,0 +1,12 @@
+.Pagination{
+    position: relative;
+    width: 80%;
+    margin: 10px 20px 30px 20px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Pagination Button{
+    margin: 0 5px;
+}
