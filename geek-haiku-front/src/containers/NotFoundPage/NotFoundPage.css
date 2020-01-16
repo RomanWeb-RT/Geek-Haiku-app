@@ -1,0 +1,29 @@
+.NotFoundPage{
+    align-self: center;
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid var(--borderToxic);
+}
+
+.NotFoundPage h1{
+    border: 2px solid var(--borderToxic);
+    text-align: center;
+    font-family: Cassanet, serif;
+    color: var(--navigationPurple);
+    font-size: 150px;
+    font-style: italic;
+    text-shadow: 2px 2px 2px var(--darkCyan);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.NotFoundPage h2{
+    text-align: center;
+    font-family: Cassanet, serif;
+    color: var(--darkCyan);
+    font-size: 70px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

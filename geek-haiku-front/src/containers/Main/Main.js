@@ -65,10 +65,11 @@ class Main extends Component {
                     {text: text[1].text, id: text[1].id},
                     {text: text[2].text, id: text[2].id}
                 ],
-                image: image
+                image,
+                date
             };
             return (
-                <Haiku image={result.image} text={result.text} key={Math.random()}/>
+                <Haiku image={result.image} text={result.text} key={Math.random()} date={result.date}/>
             )
         })
     }

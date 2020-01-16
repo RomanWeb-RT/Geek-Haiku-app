@@ -8,10 +8,10 @@
 .HaikuText p {
     text-align: center;
     font-family: Cassanet, serif;
-    color: #5041B2;
+    color: var(--navigationPurple);
     font-size: 25px;
     font-style: italic;
-    text-shadow: 0 1px 1px darkcyan;
+    text-shadow: 0 1px 1px var(--darkCyan);
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
