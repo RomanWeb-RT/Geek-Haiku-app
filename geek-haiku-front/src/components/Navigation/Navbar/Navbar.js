@@ -1,4 +1,5 @@
 import classes from './Navbar.css'
+import icon from '../../../navbar_icon.png'
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 
@@ -31,8 +32,11 @@ class Navbar extends Component {
         return (
             <React.Fragment>
                 <nav className={nav.join(' ')}>
-                    <NavLink to={"/"} exact={true}/>
-                    <strong>Geek Haiku</strong>
+                    <NavLink to={"/"} exact={true} className={classes.NavbarIcon}/>
+                    <NavLink to={"/"} exact={true}><strong>Geek Haiku</strong></NavLink>
+                    <div>
+                        <NavLink to={"/auth"} exact={true}><strong>Log In</strong></NavLink>
+                    </div>
                 </nav>
             </React.Fragment>
         )

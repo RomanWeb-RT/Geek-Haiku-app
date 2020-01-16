@@ -7,9 +7,12 @@
 
 .HaikuText p {
     text-align: center;
-    font-family: Cassanet;
+    font-family: Cassanet, serif;
     color: #5041B2;
     font-size: 25px;
     font-style: italic;
-    text-shadow: 0px 1px 1px darkcyan;
+    text-shadow: 0 1px 1px darkcyan;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
