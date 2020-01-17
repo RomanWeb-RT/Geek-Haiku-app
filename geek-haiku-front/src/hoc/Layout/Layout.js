@@ -14,7 +14,6 @@ class Layout extends Component {
                     {this.props.children}
                 </main>
                 <Footer/>
-                <Clock/>
             </div>
         )
     }
