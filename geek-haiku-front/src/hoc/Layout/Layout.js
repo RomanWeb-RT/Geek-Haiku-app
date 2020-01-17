@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import classes from './Layout.css';
 import Navbar from "../../components/Navigation/Navbar/Navbar";
 import Footer from "../../components/Navigation/Footer/Footer";
+import Clock from "../../components/Clock/Clock";
 
 class Layout extends Component {
     render() {
@@ -13,6 +14,7 @@ class Layout extends Component {
                     {this.props.children}
                 </main>
                 <Footer/>
+                <Clock/>
             </div>
         )
     }

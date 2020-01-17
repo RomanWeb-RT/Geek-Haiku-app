@@ -8,7 +8,7 @@ const Clock = () =>{
             <div className="container">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                      xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     width="600px" height="300px" viewBox="0 0 1362.45 324" enableBackground="new 0 0 1362.45 324"
+                     width="200px" height="50px" viewBox="0 0 1362.45 324" enableBackground="new 0 0 1362.45 324"
                      xmlSpace="preserve">
                     <g className="hour digit digit-1">
                         <g className="lcd-element top-center">
