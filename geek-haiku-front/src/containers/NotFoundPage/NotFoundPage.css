@@ -2,17 +2,16 @@
     align-self: center;
     width: 100vw;
     height: 100vh;
-    border: 2px solid var(--borderToxic);
+    margin-top: 100px;
 }
 
 .NotFoundPage h1{
     border: 2px solid var(--borderToxic);
     text-align: center;
-    font-family: Cassanet, serif;
-    color: var(--navigationPurple);
+    color: var(--404Label);
     font-size: 150px;
     font-style: italic;
-    text-shadow: 2px 2px 2px var(--darkCyan);
+    text-shadow: 2px 2px 2px var(--404LabelShadow);
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
@@ -20,8 +19,7 @@
 
 .NotFoundPage h2{
     text-align: center;
-    font-family: Cassanet, serif;
-    color: var(--darkCyan);
+    color: var(--404Text);
     font-size: 70px;
     -moz-user-select: none;
     -webkit-user-select: none;

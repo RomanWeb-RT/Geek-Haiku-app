@@ -1,7 +1,6 @@
 .ImageUploader{
     display: block;
     align-self: unset;
-    font-family: Cassanet;
     color: var(--noiseGreen);
     font-size: 25px;
 }
