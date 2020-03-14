@@ -1,8 +1,9 @@
 .Layout{
     display: flex;
     flex-direction: column;
-    background-color: var(--backgroundDark);
+    background-color: var(--pageBackground);
     min-height: 100vh;
+    font-family: Cassanet, serif;
 }
 
 .Layout main{
