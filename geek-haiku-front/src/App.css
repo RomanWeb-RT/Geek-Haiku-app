@@ -7,9 +7,10 @@
 :root{
     /*Global colors*/
     --pageBackground: #113d5e;
+    --containerBackground: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, var(--noiseGreen) 100%);
+    --navbarBackground: linear-gradient(90deg, #1f1955 5%, rgb(44, 68, 207) 30%, rgb(83, 103, 230) 80%, rgba(0, 29, 185, 0.70) 100%);
     --noiseGreen: #5AFFA1;
     --borderToxic: rgba(117, 255, 117, 0.72);
-    --gradient: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, var(--noiseGreen) 100%);
 
     /*Input colors*/
     --inputIncorrect: #ff2c66;
