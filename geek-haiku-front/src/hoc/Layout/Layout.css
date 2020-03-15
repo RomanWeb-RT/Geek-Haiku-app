@@ -1,7 +1,9 @@
 .Layout{
     display: flex;
     flex-direction: column;
-    background-color: var(--backgroundDark);
+    background: url("https://images6.alphacoders.com/792/thumb-1920-792513.jpg") no-repeat fixed;
+    min-height: 100vh;
+    font-family: Cassanet, serif;
 }
 
 .Layout main{

@@ -5,8 +5,7 @@
     align-self: center;
     width: 50%;
     min-width: 750px;
-    border: 5px solid aquamarine;
-    font-family: Cassanet;
+    background: var(--pageBackground);
 }
 
 .HaikuCreator > div {
@@ -24,10 +23,16 @@
     text-align: center;
     font-size: 34px;
     color: azure;
+    margin: 20px;
+}
+
+.HaikuCreator .Haiku {
+    text-align: center;
 }
 
 .HaikuCreator h2 {
     text-align: center;
     font-size: 25px;
     color: azure;
+    margin: 10px;
 }

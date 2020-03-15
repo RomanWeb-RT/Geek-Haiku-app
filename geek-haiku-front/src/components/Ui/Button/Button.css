@@ -2,9 +2,9 @@
     display: inline-block;
     padding: 10px 20px;
     border-radius: 3px;
-    border: aquamarine;
+    border: var(--buttonShadow);
     margin: 15px;
-    font-family: Cassanet;
+    font-family: Cassanet, serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
@@ -15,29 +15,29 @@
 }
 
 .Button:active{
-    box-shadow:  0 1px 1px 1px aquamarine;
+    box-shadow:  0 1px 1px 1px var(--buttonShadow);
 }
 
 .Button:disabled{
-    background: darkslategrey;
+    background: var(--buttonDisabled);
     color: honeydew;
     cursor: not-allowed;
 }
 
 .error{
-    background: var(--errorRed);
+    background: var(--buttonError);
 }
 
 .successful{
-    background: var(--noiseGreen);
-    color: var(--darkCyan);
+    background: var(--buttonSuccess);
+    color: var(--buttonPrimary);
 }
 
 .primary{
-    background: var(--darkCyan);
-    color: var(--noiseGreen);
+    background: var(--buttonPrimary);
+    color: var(--buttonSuccess);
 }
 
 .navigation{
-    color: var(--navigationPurple);
+    color: var(--buttonNavigationActive);
 }

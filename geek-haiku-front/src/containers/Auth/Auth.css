@@ -6,7 +6,6 @@
     width: 50%;
     height: 100vh;
     min-width: 750px;
-    font-family: Cassanet;
 }
 
 .Auth > div {
@@ -14,8 +13,7 @@
     width: 80%;
     max-width: 600px;
     align-self: center;
-    border: 5px solid aquamarine;
-    background: var(--gradient);
+    background: var(--containerBackground);
     border-radius: 6px;
 }
 

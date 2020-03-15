@@ -35,7 +35,7 @@ const Pagination = props => {
             </div>
         )
     } else {
-        return (<div className={styles.Pagination}></div>)
+        return <div className={styles.Pagination}/>
     }
 };
 

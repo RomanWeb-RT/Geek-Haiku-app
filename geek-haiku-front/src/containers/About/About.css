@@ -8,10 +8,11 @@
 }
 
 .About ul{
-    font-family: Cassanet;
+    background: var(--pageBackground);
     width: 500px;
     border: 3px double var(--noiseGreen);
     padding: 20px;
+    border-radius: 3px;
 }
 
 .About ul li{
@@ -20,7 +21,6 @@
 }
 
 .About ul p{
-    font-family: Cassanet;
     font-size: 24px;
     color: #6eff0d;
 }

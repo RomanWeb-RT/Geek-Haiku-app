@@ -5,11 +5,36 @@
 }
 
 :root{
-    --backgroundDark: #113d5e;
+    /*Global colors*/
+    --pageBackground: #113d5e;
+    --containerBackground: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, var(--noiseGreen) 100%);
+    --navbarBackground: linear-gradient(90deg, #1f1955 5%, rgb(44, 68, 207) 30%, rgb(83, 103, 230) 80%, rgba(0, 29, 185, 0.70) 100%);
     --noiseGreen: #5AFFA1;
     --borderToxic: rgba(117, 255, 117, 0.72);
-    --errorRed: #ff2c66;
-    --gradient: linear-gradient(90deg, rgba(20, 115, 168, 0.75) 0%, rgba(30, 77, 141, 0.62) 37%, var(--noiseGreen) 100%);
-    --darkCyan: #008B8B;
-    --navigationPurple: #5041B2;
+
+    /*Input colors*/
+    --inputIncorrect: #ff2c66;
+    --inputText: #5AFFA1;
+
+    /*Button colors*/
+    --buttonPrimary: #008B8B;
+    --buttonSuccess: #5AFFA1;
+    --buttonDisabled: #2F4F4F;
+    --buttonError: #ff2c66;
+    --buttonNavigationActive: #5041B2;
+    --buttonShadow: #7FFFD4;
+
+    /*Loader colors*/
+    --loaderCircles: #ff0b4f;
+    --loaderBubbles: #31ff89;
+
+    /*HaikuText colors*/
+    --haikuText: #5041B2;
+    --haikuTextShadow: #008B8B;
+    --haikuTextBackground:  rgba(240, 255, 255, 0.91);
+
+    /*404 page colors*/
+    --404Label: #5041B2;
+    --404LabelShadow: #008B8B;
+    --404Text: #008B8B;
 }

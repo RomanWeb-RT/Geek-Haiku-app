@@ -50,7 +50,7 @@ class HaikuCreator extends Component {
         };
 
         try {
-            let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json', {
+            await fetch('https://geek-haiku-app.firebaseio.com/haikus.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

@@ -1,17 +1,16 @@
 .HaikuText {
     align-self: center;
-    background: rgba(240, 255, 255, 0.91);
+    background: var(--haikuTextBackground);
     position: relative;
     margin-top: 250px;
 }
 
 .HaikuText p {
     text-align: center;
-    font-family: Cassanet, serif;
-    color: var(--navigationPurple);
+    color: var(--haikuText);
     font-size: 25px;
     font-style: italic;
-    text-shadow: 0 1px 1px var(--darkCyan);
+    text-shadow: 0 1px 1px var(--haikuTextShadow);
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;

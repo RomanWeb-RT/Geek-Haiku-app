@@ -74,7 +74,6 @@ class Main extends Component {
         })
     }
 
-
     render() {
         return (
             <div className={classes.Main}>
@@ -82,7 +81,8 @@ class Main extends Component {
                     <Loader/> :
                     this.haikuListRender()
                 }
-                <Pagination loading={this.state.loading} pages={this.state.pageList} currentPage={this.state.currentPage} showPage={haikuList => this.showPage(haikuList)}/>
+                <Pagination loading={this.state.loading} pages={this.state.pageList}
+                            currentPage={this.state.currentPage} showPage={haikuList => this.showPage(haikuList)}/>
             </div>
         )
     }
