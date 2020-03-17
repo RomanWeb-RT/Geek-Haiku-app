@@ -23,18 +23,23 @@
     -webkit-user-select: none;
     user-select: none;
 }
-.Navbar div{
+
+.Navbar div {
     position: absolute;
     top: 50%;
     padding-right: 8em;
     right: 0;
-    transform: translate(0, -50%);
     font-size: 22px;
     text-shadow: 2px 3px 2px black;
-    color: var(--noiseGreen);
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+}
+
+.Navbar div div {
+    position: absolute;
+    top: 50%;
+    padding-right: 13em;
+    right: 0;
+    font-size: 22px;
+    text-shadow: 2px 3px 2px black;
 }
 
 .NavbarIcon {

@@ -1,31 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './Sandbox.css';
 import SandGrain from "../../components/SandGrain/SandGrain";
-import {Link, Redirect, Route, Switch} from "react-router-dom";
-import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import {NavLink} from "react-router-dom";
 
-const Sandbox = ({match}) => {
+class Sandbox extends Component {
 
-    const sandGrains = [
-        {name: "High Speed Printing", url: "highSpeedPrinting", image: "https://i.imgur.com/lJ2bwAL.png"}
-    ];
+    state = {
+        sandGrains: [
+            {name: "High Speed Printing", url: "highSpeedPrinting", image: "https://i.imgur.com/lJ2bwAL.png"},
+            {name: "JavaScript Quiz", url: "jsQuiz", image: "https://i.imgur.com/lJ2bwAL.png"},
+            {name: "Organizer", url: "organizer", image: "https://i.imgur.com/lJ2bwAL.png"}
+        ]
+    };
 
-    return (
-        <div className={styles.Sandbox}>
-            {sandGrains.map(({name, url, image}) => {
-                return (
-                    <Link to={`${match.url}/${url}`}>
-                        <SandGrain name={name} image={image}/></Link>)
-            })}
-            <Switch>
-                <Route exact path={match.path}/>
-                <Route path={`${match.path}/:sandGrainId`}/>
-                <Route path={'/404'} component={NotFoundPage}/>
-                <Redirect to={'/404'}/>
-            </Switch>
-        </div>
-    )
-
-};
+    render() {
+        return (
+            <div className={styles.Sandbox}>
+                {this.state.sandGrains.map(({name, url, image}) => {
+                    return (
+                        <NavLink to={`/sandbox/${url}`} exact={true}>
+                            <SandGrain name={name} image={image}/>
+                            <hr/>
+                        </NavLink>)
+                })}
+            </div>
+        )
+    };
+}
 
 export default Sandbox;

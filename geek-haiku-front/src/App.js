@@ -9,6 +9,7 @@ import HaikuCreator from "./containers/HaikuCreator/HaikuCreator";
 import Register from "./containers/Register/Register";
 import NotFoundPage from "./containers/NotFoundPage/NotFoundPage";
 import Sandbox from "./containers/Sandbox/Sandbox";
+import HighSpeedPrinting from "./containers/Sandbox/HighSpeedPrinting/HighSpeedPrinting";
 
 function App() {
     return (
@@ -18,6 +19,9 @@ function App() {
                 <Route path={'/create'} component={HaikuCreator}/>
                 <Route path={'/auth'} component={Auth}/>
                 <Route path={'/register'} component={Register}/>
+                <Route path={'/sandbox/highSpeedPrinting'} component={HighSpeedPrinting}/>
+                <Route path={'/sandbox/jsQuiz'} />
+                <Route path={'/sandbox/organizer'} />
                 <Route path={'/sandbox'} component={Sandbox}/>
                 <Route exact path={'/'} component={Main}/>
                 <Route path={'/404'} component={NotFoundPage}/>
