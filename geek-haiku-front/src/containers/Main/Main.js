@@ -20,17 +20,17 @@ class Main extends Component {
             let response = await fetch('https://geek-haiku-app.firebaseio.com/haikus.json')
                 .then(resp => resp.json());
             Object.keys(response).forEach((key) => {
-                if (response[key].date === `2020-1-${5 + id}`)
+                if (haikuList.length < 3)
                     haikuList.push(response[key]);
                 else {
-                    pageList.push(this.addNewPage(id, `2020-1-${5 + id}`, haikuList));
+                    pageList.push(this.addNewPage(id, Date.now(), haikuList));
                     id++;
                     haikuList = [];
                     haikuList.push(response[key])
                 }
             });
             if (!haikuList.isEmpty)
-                pageList.push(this.addNewPage(id, `2020-1-${5 + id}`, haikuList));
+                pageList.push(this.addNewPage(id, Date.now(), haikuList));
             haikuList = pageList[0].haikuList;
             this.setState({
                 haikuList,

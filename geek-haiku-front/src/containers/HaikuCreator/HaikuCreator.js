@@ -126,12 +126,14 @@ class HaikuCreator extends Component {
                         />
                         <hr/>
                         <h2>Предпросмотр</h2>
-                        <Haiku text={[
-                            {text: this.state.formInputs.firstLine.value},
-                            {text: this.state.formInputs.secondLine.value},
-                            {text: this.state.formInputs.thirdLine.value}]}
-                               image={this.state.image}
-                        />
+                        <div className="preview">
+                            <Haiku text={[
+                                {text: this.state.formInputs.firstLine.value},
+                                {text: this.state.formInputs.secondLine.value},
+                                {text: this.state.formInputs.thirdLine.value}]}
+                                   image={this.state.image}
+                            />
+                        </div>
                         <hr/>
                         <Button type="primary" onClick={this.createHaikuHandler} disabled={!this.state.isFormValid}>
                             Создать

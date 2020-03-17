@@ -26,8 +26,10 @@
     margin: 20px;
 }
 
-.HaikuCreator .Haiku {
-    text-align: center;
+.HaikuCreator .preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .HaikuCreator h2 {
