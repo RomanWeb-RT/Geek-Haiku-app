@@ -1,0 +1,11 @@
+.SandGrain{
+    display: inline-block;
+    text-align: center;
+    height: 200px;
+    width: 100vw;
+}
+
+.SandGrain h1{
+    font-size: 40px;
+    color: var(--noiseGreen);
+}

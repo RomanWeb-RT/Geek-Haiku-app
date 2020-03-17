@@ -1,0 +1,10 @@
+.Sandbox{
+    display: block;
+    width: 100%;
+    padding-top: 50px;
+    background: var(--pageBackground);
+}
+
+.Sandbox hr{
+    color: var(--noiseGreen);
+}
